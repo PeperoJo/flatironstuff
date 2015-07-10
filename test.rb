@@ -1,9 +1,18 @@
-def say_name(name, lname)
-    puts "Hello #{name}"
-    puts "Your last name is... #{lname}?"
+def compute(calc)
+  if calc.include? "**"
+    return (calc[0..calc.index("**")].to_f)**(calc[calc.index("**")+2..-1].to_f)
+  elsif calc.include? "%"
+    return (calc[0..calc.index("%")].to_f)%(calc[calc.index("%")+1..-1].to_f)
+  elsif calc.include? "*"
+    return (calc[0..calc.index("*")].to_f)*(calc[calc.index("*")+1..-1].to_f)
+  elsif calc.include? "/"
+    return (calc[0..calc.index("/")].to_f)/(calc[calc.index("/")+1..-1].to_f)
+  elsif calc.include? "+"
+    return (calc[0..calc.index("+")].to_f)+(calc[calc.index("+")+1..-1].to_f)
+  elsif calc.include? "-"
+    return (calc[0..calc.index("-")].to_f)-(calc[calc.index("-")+1..-1].to_f)
+  end
 end
-
-say_name("jo", "han")
-
-
-#..
+    
+c = gets
+puts compute(c)
